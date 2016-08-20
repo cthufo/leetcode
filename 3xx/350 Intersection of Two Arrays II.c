@@ -19,7 +19,7 @@ void quickSort(int left, int right, int * nums)
 	quickSort(left, end, nums);
 }
 	
-int* intersection(int* nums1, int nums1Size, int* nums2, int nums2Size, int* returnSize) {
+int* intersect(int* nums1, int nums1Size, int* nums2, int nums2Size, int* returnSize) {
 	int largeIndex = 0, largeSize = nums1Size > nums2Size ? nums1Size : nums2Size;
     int smallIndex = 0, smallSize = nums1Size > nums2Size ? nums2Size : nums1Size;
 	int * returnNums = malloc(sizeof(int) * smallSize);
@@ -33,10 +33,8 @@ int* intersection(int* nums1, int nums1Size, int* nums2, int nums2Size, int* ret
 		} else if (smallNums[smallIndex] > largeNums[largeIndex]) {
 			largeIndex++;
 		} else {
-			if ((*returnSize) - 1 < 0 || returnNums[(*returnSize) - 1] != smallNums[smallIndex]) {
-				returnNums[(*returnSize)++] = smallNums[smallIndex];
-            }
-			largeIndex++;
+			returnNums[(*returnSize)++] = smallNums[smallIndex];
+            largeIndex++;
 			smallIndex++;
 		}
 	}
