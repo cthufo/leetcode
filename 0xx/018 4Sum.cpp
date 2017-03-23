@@ -25,8 +25,7 @@ public:
         vector<vector<int>> answers;
         sort(nums.begin(), nums.end());
         getAnswers(nums, target, answer, answers);
-        sort(answers.begin(), answers.end(), [](const vector<int>& l, const vector<int>& r )
-        {
+        sort(answers.begin(), answers.end(), [](const vector<int>& l, const vector<int>& r) {
             for (int i = 0; i < 4; i++) {
                 if (l[i] < r[i]) {
                     return true;
@@ -34,7 +33,7 @@ public:
                     return false;
                 }
             }
-        	return false;
+            return false;
         });
         for (int i = 0; i < answers.size(); i++) {
             for (auto it = answers.begin() + i + 1; it < answers.end(); it++) {
